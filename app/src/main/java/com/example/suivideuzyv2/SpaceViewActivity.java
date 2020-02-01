@@ -2,7 +2,11 @@ package com.example.suivideuzyv2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class SpaceViewActivity extends AppCompatActivity {
@@ -14,9 +18,34 @@ public class SpaceViewActivity extends AppCompatActivity {
 
         Bundle bdl = this.getIntent().getExtras();
         String SpaceName = bdl.getString("SpaceName");
-        Toast t = Toast.makeText(this,"SpaceName = "+ SpaceName, Toast.LENGTH_LONG);
-        t.show();
-
         this.setTitle(SpaceName);
+
+
+        this.initButtonIndicators();
+    }
+
+
+
+
+    // init des buttons
+    public void initButtonIndicators(){
+        LinearLayout linearLayout = findViewById(R.id.indicatorsList);
+        for (int i = 1; i <= 5; i++) {
+            Button btn = new Button(this);
+            //btn.setId(i);
+            btn.setText("INDICATOR "+i);
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    /*Toast.makeText(v.getContext(), ((Button) v).getId() + " clicked", Toast.LENGTH_SHORT).show();
+                    Bundle myBdl = new Bundle();
+                    myBdl.putString("SpaceName", (String) ((Button) v).getText());
+                    Intent versSpaceViewActivity = new Intent(getApplicationContext(),SpaceViewActivity.class);
+                    versSpaceViewActivity.putExtras(myBdl);
+                    startActivity(versSpaceViewActivity);*/
+                }
+            });
+            linearLayout.addView(btn);
+        }
     }
 }

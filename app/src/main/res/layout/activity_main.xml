@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/spacesList"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+</LinearLayout>
+
+
+
+<!--
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:gravity="center"/>
+-->
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="286dp"
-        android:layout_height="92dp"
-        android:text="SPACE 1"
-        android:onClick="onButtonClicked"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="283dp"
-        android:layout_height="112dp"
-        android:text="SPACE 2"
-        android:onClick="onButtonClicked"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button1" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
