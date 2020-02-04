@@ -18,10 +18,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class SpaceViewActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+
+
+    private String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,24 +33,11 @@ public class SpaceViewActivity extends AppCompatActivity implements DatePickerDi
         setContentView(R.layout.activity_space_view);
 
         Bundle bdl = this.getIntent().getExtras();
-        String SpaceName = bdl.getString("SpaceName");
 
+        this.title = bdl.getString("SpaceName"); // On met dans la variable le spaceName
+        this.setTitle(title + " - " + android.text.format.DateFormat.format("dd MMMM yyyy", Calendar.getInstance().getTime())); // on affiche le titre avec la date du jour
 
-        // --------------------------------------------
-        // affichage de la date
-        //DialogFragment datePicker = new DatePickerFragment();
-        //Date date = new DatePickerFragment();
-        Date currentTime = Calendar.getInstance().getTime();
-        this.setTitle(SpaceName + " - " + currentTime);
-
-
-
-
-
-
-
-
-        this.initButtonIndicators();
+        this.initButtonIndicators(); // affichage des boutons indicators
     }
 
     @Override
@@ -55,13 +46,9 @@ public class SpaceViewActivity extends AppCompatActivity implements DatePickerDi
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
-
-
-        String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
-
-        TextView text = (TextView) findViewById(R.id.textView);
-        text.setText(currentDateString);
+        Date date = c.getTime(); // on recupere la date choisit depuis le calendrier
+        this.setTitle(title + " - " + android.text.format.DateFormat.format("dd MMMM yyyy", date)); // on actualise le titre avec la nouvelle date
+        // IL FAUT REACTULISER LA LISTE DES INDICATORS POUR LA DATE CHOISIT
     }
 
     // Creation et affichage du menu
@@ -95,7 +82,7 @@ public class SpaceViewActivity extends AppCompatActivity implements DatePickerDi
     // init des buttons
     public void initButtonIndicators(){
         LinearLayout linearLayout = findViewById(R.id.indicatorsList);
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 15; i++) {
             Button btn = new Button(this);
             //btn.setId(i);
             btn.setText("INDICATOR "+i);
