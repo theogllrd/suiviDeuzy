@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle("Home");
         this.initButtonSpaces();
     }
 
@@ -80,6 +81,16 @@ public class MainActivity extends AppCompatActivity {
             linearLayout.addView(btn);
             linearLayout.addView(btnHistory);
         }
+        // Création du bouton "add space"
+        Button btn = new Button(this);
+        btn.setText("NEW SPACE");
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), NewSpaceActivity.class));
+            }
+        });
+        linearLayout.addView(btn);
     }
 
 
