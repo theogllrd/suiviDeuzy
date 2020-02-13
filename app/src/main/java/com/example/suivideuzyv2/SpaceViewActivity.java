@@ -82,19 +82,17 @@ public class SpaceViewActivity extends AppCompatActivity implements DatePickerDi
     // init des buttons
     public void initButtonIndicators(){
         LinearLayout linearLayout = findViewById(R.id.indicatorsList);
-        for (int i = 1; i <= 15; i++) {
+        for (int i = 1; i <= 20; i++) {
             Button btn = new Button(this);
-            //btn.setId(i);
-            btn.setText("INDICATOR "+i);
+            btn.setId(i);
+            btn.setText("INDICATOR " + btn.getId());
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*Toast.makeText(v.getContext(), ((Button) v).getId() + " clicked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), ((Button) v).getId() + " clicked", Toast.LENGTH_SHORT).show();
                     Bundle myBdl = new Bundle();
-                    myBdl.putString("SpaceName", (String) ((Button) v).getText());
-                    Intent versSpaceViewActivity = new Intent(getApplicationContext(),SpaceViewActivity.class);
-                    versSpaceViewActivity.putExtras(myBdl);
-                    startActivity(versSpaceViewActivity);*/
+                    myBdl.putInt("idIndicator", ((Button) v).getId());
+                    startActivity(new Intent(getApplicationContext(), IndicatorViewActivity.class).putExtras(myBdl));
                 }
             });
             linearLayout.addView(btn);

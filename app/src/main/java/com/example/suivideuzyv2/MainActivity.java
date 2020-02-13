@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout linearLayout = findViewById(R.id.spacesList);
         for (int i = 1; i <= 3; i++) {
             Button btn = new Button(this);
+            btn.setId(i); // il faudra get l'id dans la bdd
             Button btnHistory = new Button(this);
-            //btn.setId(i);
-            btn.setText("SPACE "+i);
+            btn.setText("SPACE " + btn.getId());
             btnHistory.setText("History of Space "+i);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override

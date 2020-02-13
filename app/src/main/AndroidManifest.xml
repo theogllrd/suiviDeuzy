@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewSpaceActivity"></activity>
+        <activity android:name=".IndicatorViewActivity"></activity>
+        <activity android:name=".NewSpaceActivity" />
         <activity android:name=".HistoryActivity" />
         <activity android:name=".SpaceViewActivity" />
         <activity android:name=".MainActivity">
