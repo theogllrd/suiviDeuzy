@@ -34,7 +34,7 @@ public class SpaceViewActivity extends AppCompatActivity implements DatePickerDi
 
         Bundle bdl = this.getIntent().getExtras();
 
-        this.title = bdl.getString("SpaceName"); // On met dans la variable le spaceName
+        this.title = "Space " + bdl.getInt("idSpace"); // On met dans la variable le spaceName
         this.setTitle(title + " - " + android.text.format.DateFormat.format("dd MMMM yyyy", Calendar.getInstance().getTime())); // on affiche le titre avec la date du jour
 
         this.initButtonIndicators(); // affichage des boutons indicators

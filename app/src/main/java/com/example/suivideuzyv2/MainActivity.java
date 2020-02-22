@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             Button btn = new Button(this);
             btn.setId(i); // il faudra get l'id dans la bdd
             Button btnHistory = new Button(this);
+            btnHistory.setId(i); // pas bon d'avoir 2 fois les meme id en front
             btn.setText("SPACE " + btn.getId());
             btnHistory.setText("History of Space "+i);
             btn.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), ((Button) v).getId() + " clicked", Toast.LENGTH_SHORT).show();
                     Bundle myBdl = new Bundle();
-                    myBdl.putString("SpaceName", (String) ((Button) v).getText());
+                    myBdl.putInt("idSpace", ((Button) v).getId());
                     Intent versSpaceViewActivity = new Intent(getApplicationContext(),SpaceViewActivity.class);
                     versSpaceViewActivity.putExtras(myBdl);
                     startActivity(versSpaceViewActivity);
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Bundle myBdl = new Bundle();
-                    myBdl.putString("SpaceName", (String) ((Button) v).getText());
+                    myBdl.putInt("idSpaceHistory", ((Button) v).getId());
                     Intent versHistoryActivity = new Intent(getApplicationContext(),HistoryActivity.class);
                     versHistoryActivity.putExtras(myBdl);
                     startActivity(versHistoryActivity);
